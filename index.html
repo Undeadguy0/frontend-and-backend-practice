@@ -7,76 +7,83 @@
         <link rel="stylesheet" href="styles/styles.css" />
     </head>
     <body>
-        <div id="header">Заголовок</div>
-        <div class="nav">
-            <div class="nav-list">
-                <ul>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/news.html">Новости</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/practices.html"
-                            >Практики</a
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/goods.html">Товары</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/contacts.html"
-                            >Контакты</a
-                        >
-                    </li>
-                </ul>
+        <div class="page-container">
+            <div class="header">Заголовок</div>
+            <div class="nav">
+                <div class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/news.html"
+                                >Новости</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/practices.html"
+                                >Практики</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/goods.html"
+                                >Товары</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/contacts.html"
+                                >Контакты</a
+                            >
+                        </li>
+                    </ul>
+                </div>
             </div>
+            <div class="content">
+                <p>Информация об авторе</p>
+                <img
+                    class="profile-photo"
+                    src="images/rust_crab.png"
+                    alt="Фото автора"
+                    width="200"
+                    height="250"
+                />
+                <p class="profile-name">Бунто Михаил Владиславович</p>
+                <p class="profile-group">ЭФБО-16-24</p>
+                <div class="about-me">
+                    <p>
+                        Обо мне: Родился в 2005 под новый год в Москве. Уже в
+                        два почти намертво примонтировался к домашнему ПК.
+                    </p>
+                    <p>
+                        В 13 по-приколу на питоне написал программу, вызывающую
+                        переполнение оперативной памяти и поставил ее на все
+                        компьютеры в классе своей первой школы. В 17 попробовал
+                        тоже самое в новой школе, но уже на C++. Увы, но в этот
+                        раз препод оказался умным.
+                    </p>
+                    <p>В 18 жестко подсел на Rust, не слез по сей день.</p>
+                </div>
+                <div class="skill-tag">Навык 1</div>
+                <div class="skill-tag">Навык 2</div>
+                <div class="skill-tag">Навык 3</div>
+                <div class="skill-tag">Навык 4</div>
+                <div class="experience-section">
+                    <h2 class="section-title">Мой опыт работы</h2>
+                    <div class="experience-card">
+                        <h3 class="experience-title">Опыт 1</h3>
+                        Искал игры на домашнем ПК по памяти.
+                    </div>
+                    <div class="experience-card">
+                        <h3 class="experience-title">Опыт 2</h3>
+                        Профессионально пинал балду.
+                    </div>
+                    <div class="experience-card">
+                        <h3 class="experience-title">Опыт 3</h3>
+                        Ставил Arch по гайдам.
+                    </div>
+                </div>
+            </div>
+            <div class="footer">Футер</div>
         </div>
-        <div id="content">
-            <p>Информация об авторе</p>
-            <img
-                src="images/rust_crab.png"
-                alt="Фото автора"
-                width="200"
-                height="250"
-            />
-            <p class="profile-name">Бунто Михаил Владиславович</p>
-            <p class="profile-group">ЭФБО-16-24</p>
-            <div class="about-me">
-                <p>
-                    Обо мне: Родился в 2005 под новый год в Москве. Уже в два
-                    почти намертво примонтировался к домашнему ПК.
-                </p>
-                <p>
-                    В 13 по-приколу на питоне написал программу, вызывающую
-                    переполнение оперативной памяти и поставил ее на все
-                    компьютеры в классе своей первой школы. В 17 попробовал тоже
-                    самое в новой школе, но уже на C++. Увы, но в этот раз
-                    препод оказался умным.
-                </p>
-                <p>В 18 жестко подсел на Rust, не слез по сей день.</p>
-            </div>
-            <div>Навык 1</div>
-            <div>Навык 2</div>
-            <div>Навык 3</div>
-            <div>Навык 4</div>
-            <div>
-                Мой опыт работы:
-                <div>
-                    Опыт 1<br />
-                    Искал игры на домашнем ПК по памяти.
-                </div>
-                <div>
-                    Опыт 2<br />
-                    Профессионально пинал балду.
-                </div>
-                <div>
-                    Опыт 3<br />
-                    Ставил Arch по гайдам.
-                </div>
-            </div>
-        </div>
-        <footer>Футер</footer>
     </body>
 </html>
