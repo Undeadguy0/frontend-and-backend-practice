@@ -199,3 +199,19 @@ body {
     line-height: 1.5; /* Высота строки */
     color: #666; /* Светло-серый цвет текста */
 }
+
+.placeholder {
+    padding: 25px;
+    margin: 20px 0;
+}
+
+.placeholder h3 {
+    font-size: 20px; /* Размер шрифта заголовка */
+    font-weight: bold;
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.placeholder img {
+    border-radius: 15px;
+    border: 4px solid #eb1c45;
+}
