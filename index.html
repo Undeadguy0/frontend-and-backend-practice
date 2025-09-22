@@ -4,17 +4,34 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Первая контрольная по фронту и беку</title>
+        <link rel="stylesheet" href="styles/styles.css" />
     </head>
     <body>
         <div id="header">Заголовок</div>
-        <div id="menu">
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="pages/news.html">Новости</a></li>
-                <li><a href="pages/practices.html">Практики</a></li>
-                <li><a href="pages/goods.html">Товары</a></li>
-                <li><a href="pages/contacts.html">Контакты</a></li>
-            </ul>
+        <div class="nav">
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/news.html">Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/practices.html"
+                            >Практики</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/goods.html">Товары</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/contacts.html"
+                            >Контакты</a
+                        >
+                    </li>
+                </ul>
+            </div>
         </div>
         <div id="content">
             <p>Информация об авторе</p>
@@ -24,17 +41,22 @@
                 width="200"
                 height="250"
             />
-            <p>Бунто Михаил Владиславович</p>
-            <p>ЭФБО-16-24</p>
-            <p>
-            <p>Обо мне: Родился в 2005 под новый год в Москве. Уже в два почти
-                намертво примонтировался к домашнему ПК.</p> <p>В 13 по-приколу на
-                питоне написал программу, вызывающую переполнение оперативной
-                памяти и поставил ее на все компьютеры в классе своей первой
-                школы. В 17 попробовал тоже самое в новой школе, но уже на C++.
-                Увы, но в этот раз препод оказался умным.</p> <p>В 18 жестко подсел на
-                Rust, не слез по сей день.</p>
-            </p>
+            <p class="profile-name">Бунто Михаил Владиславович</p>
+            <p class="profile-group">ЭФБО-16-24</p>
+            <div class="about-me">
+                <p>
+                    Обо мне: Родился в 2005 под новый год в Москве. Уже в два
+                    почти намертво примонтировался к домашнему ПК.
+                </p>
+                <p>
+                    В 13 по-приколу на питоне написал программу, вызывающую
+                    переполнение оперативной памяти и поставил ее на все
+                    компьютеры в классе своей первой школы. В 17 попробовал тоже
+                    самое в новой школе, но уже на C++. Увы, но в этот раз
+                    препод оказался умным.
+                </p>
+                <p>В 18 жестко подсел на Rust, не слез по сей день.</p>
+            </div>
             <div>Навык 1</div>
             <div>Навык 2</div>
             <div>Навык 3</div>
