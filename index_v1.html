@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Главная - Первая контрольная по фронту и беку</title>
+        <link rel="stylesheet" href="styles/styles.css" />
+    </head>
+    <body>
+        <div class="page">
+            <!-- Семантический хедер -->
+            <header class="header">
+                <h1 class="header__title">X2App</h1>
+            </header>
+
+            <!-- Семантическая навигация -->
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--active" href="index.html"
+                            >Главная</a
+                        >
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="pages/news.html">Новости</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="pages/goods.html">Товары</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="pages/contacts.html"
+                            >Контакты</a
+                        >
+                    </li>
+                    <!-- Переключатель темы -->
+                    <li class="nav__item">
+                        <button
+                            class="nav__theme-toggle"
+                            id="themeToggle"
+                            aria-label="Переключить тему"
+                        >
+                            🌙
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Основной контент -->
+            <main class="main">
+                <!-- Блок профиля -->
+                <section class="profile">
+                    <h1 class="profile__title">Информация об авторе</h1>
+                    <img
+                        class="profile__photo"
+                        src="images/rust_crab.png"
+                        alt="Фото автора"
+                    />
+                    <h2 class="profile__name">Бунто Михаил Владиславович</h2>
+                    <p class="profile__group">ЭФБО-16-24</p>
+                </section>
+
+                <!-- Блок "Обо мне" -->
+                <section class="about">
+                    <h2 class="about__title">Обо мне</h2>
+                    <div class="about__content">
+                        <p class="about__text">
+                            Обо мне: Родился в 2005 под новый год в Москве. Уже
+                            в два почти намертво примонтировался к домашнему ПК.
+                        </p>
+                        <p class="about__text">
+                            В 13 по-приколу на питоне написал программу,
+                            вызывающую переполнение оперативной памяти и
+                            поставил ее на все компьютеры в классе своей первой
+                            школы. В 17 попробовал тоже самое в новой школе, но
+                            уже на C++. Увы, но в этот раз препод оказался
+                            умным.
+                        </p>
+                        <p class="about__text">
+                            В 18 жестко подсел на Rust, не слез по сей день.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Блок навыков -->
+                <section class="skills">
+                    <h2 class="skills__title">Мои навыки</h2>
+                    <div class="skills__grid">
+                        <div class="skill skill--rust">Rust</div>
+                        <div class="skill skill--python">Python</div>
+                        <div class="skill skill--cpp">C++</div>
+                        <div class="skill">Web Development</div>
+                        <div class="skill">System Programming</div>
+                        <div class="skill">Linux</div>
+                    </div>
+                </section>
+
+                <!-- Блок опыта работы -->
+                <section class="experience">
+                    <h2 class="experience__title">Мой опыт работы</h2>
+                    <div class="experience__grid">
+                        <article
+                            class="experience-card experience-card--highlight"
+                        >
+                            <h3 class="experience-card__title">Опыт 1</h3>
+                            <p class="experience-card__desc">
+                                Искал игры на домашнем ПК по памяти.
+                            </p>
+                        </article>
+                        <article class="experience-card">
+                            <h3 class="experience-card__title">Опыт 2</h3>
+                            <p class="experience-card__desc">
+                                Профессионально пинал балду.
+                            </p>
+                        </article>
+                        <article class="experience-card">
+                            <h3 class="experience-card__title">Опыт 3</h3>
+                            <p class="experience-card__desc">
+                                Ставил Arch по гайдам.
+                            </p>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Семантический футер -->
+            <footer class="footer">
+                <p class="footer__text">
+                    &copy; 2024 X2App. Все права защищены.
+                </p>
+            </footer>
+        </div>
+
+        <script>
+            // Переключение темы
+            const themeToggle = document.getElementById("themeToggle");
+            const currentTheme = localStorage.getItem("theme") || "light";
+
+            // Устанавливаем начальную тему
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            updateThemeButton(currentTheme);
+
+            themeToggle.addEventListener("click", () => {
+                const newTheme =
+                    document.documentElement.getAttribute("data-theme") ===
+                    "dark"
+                        ? "light"
+                        : "dark";
+                document.documentElement.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
+                updateThemeButton(newTheme);
+            });
+
+            function updateThemeButton(theme) {
+                themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+            }
+
+            // интерактив для карточек опыта
+            document.querySelectorAll(".experience-card").forEach((card) => {
+                card.addEventListener("click", function () {
+                    this.classList.toggle("experience-card--selected");
+                });
+            });
+        </script>
+    </body>
+</html>
