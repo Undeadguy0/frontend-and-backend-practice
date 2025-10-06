@@ -3,46 +3,234 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Первая контрольная по фронту и беку</title>
+        <title>Новости - Первая контрольная по фронту и беку</title>
         <link rel="stylesheet" href="../styles/styles.css" />
     </head>
     <body>
-        <div class="page-container">
-            <div class="header">Заголовок</div>
-            <div class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Главная</a>
+        <div class="page">
+            <!-- Семантический хедер -->
+            <header class="header">
+                <h1 class="header__title">Новости X2App</h1>
+            </header>
+
+            <!-- Навигация -->
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link" href="../index.html">Главная</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="goods.html">Товары</a>
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--active" href="news.html"
+                            >Новости</a
+                        >
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacts.html">Контакты</a>
+                    <li class="nav__item">
+                        <a class="nav__link" href="goods.html">Товары</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="contacts.html">Контакты</a>
+                    </li>
+                    <!-- Переключатель темы -->
+                    <li class="nav__item">
+                        <button
+                            class="nav__theme-toggle"
+                            id="themeToggle"
+                            aria-label="Переключить тему"
+                        >
+                            🌙
+                        </button>
                     </li>
                 </ul>
-            </div>
+            </nav>
 
-            <div class="news">
-                <div class="news_item">
-                    <h2>НОВОСТЬ 1</h2>
-                    <h5>01.01.0001 Бунто М.В</h5>
-                    <p>Новость 1. Это новость 1.</p>
-                </div>
+            <!-- Основной контент -->
+            <main class="main">
+                <section class="news">
+                    <h2 class="news__title">Последние новости</h2>
 
-                <div class="news_item">
-                    <h2>НОВОСТЬ 2</h2>
-                    <h5>01.01.0002 Бунто М.В</h5>
-                    <p>Новость 2. Это новость 2.</p>
-                </div>
+                    <div class="news__container">
+                        <!-- Новость 1 -->
+                        <article class="news-card">
+                            <h3 class="news-card__title">
+                                Запуск нового проекта X2App
+                            </h3>
+                            <div class="news-card__meta">
+                                <time datetime="2024-01-15"
+                                    >15 января 2024</time
+                                >
+                                | Автор: Бунто М.В.
+                            </div>
+                            <p class="news-card__text">
+                                Мы рады сообщить о запуске нового проекта,
+                                который революционизирует подход к
+                                веб-разработке. Проект включает в себя
+                                современные технологии и инновационные решения
+                                на базе Rust. Уже сейчас мы видим впечатляющие
+                                результаты по производительности и безопасности.
+                            </p>
+                            <button class="news-card__button read-more-btn">
+                                Читать далее...
+                            </button>
+                        </article>
 
-                <div class="news_item">
-                    <h2>НОВОСТЬ 3</h2>
-                    <h5>01.01.0003 Бунто М.В</h5>
-                    <p>Новость 3. Это новость 3 (удивительно!).</p>
-                </div>
-            </div>
+                        <!-- Новость 2 -->
+                        <article class="news-card">
+                            <h3 class="news-card__title">
+                                Rust против C++: наши выводы
+                            </h3>
+                            <div class="news-card__meta">
+                                <time datetime="2024-01-10"
+                                    >10 января 2024</time
+                                >
+                                | Автор: Бунто М.В.
+                            </div>
+                            <p class="news-card__text">
+                                После тщательного тестирования
+                                производительности и безопасности, наша команда
+                                приняла решение о переходе на Rust для всех
+                                новых проектов. Результаты превзошли ожидания!
+                                Особенно нас поразила система владения и
+                                заимствования, которая исключает целый класс
+                                ошибок.
+                            </p>
+                            <button class="news-card__button read-more-btn">
+                                Читать далее...
+                            </button>
+                        </article>
+
+                        <!-- Новость 3 -->
+                        <article class="news-card">
+                            <h3 class="news-card__title">
+                                Новый рекорд: 1000+ одновременно работающих ПК
+                            </h3>
+                            <div class="news-card__meta">
+                                <time datetime="2024-01-05">5 января 2024</time>
+                                | Автор: Бунто М.В.
+                            </div>
+                            <p class="news-card__text">
+                                Наша система стресс-тестирования установила
+                                новый рекорд - успешное тестирование более 1000
+                                компьютеров одновременно. Технология доказала
+                                свою эффективность в реальных условиях. Особенно
+                                порадовала стабильность работы под максимальной
+                                нагрузкой.
+                            </p>
+                            <button class="news-card__button read-more-btn">
+                                Читать далее...
+                            </button>
+                        </article>
+
+                        <!-- Новость 4 -->
+                        <article class="news-card">
+                            <h3 class="news-card__title">
+                                Arch Linux теперь официально поддерживается
+                            </h3>
+                            <div class="news-card__meta">
+                                <time datetime="2024-01-01">1 января 2024</time>
+                                | Автор: Бунто М.В.
+                            </div>
+                            <p class="news-card__text">
+                                Мы добавили официальную поддержку Arch Linux во
+                                все наши продукты. Тестирование показало
+                                стабильную работу даже в самых сложных
+                                конфигурациях. Теперь пользователи Arch могут
+                                быть уверены в полной совместимости нашего
+                                программного обеспечения.
+                            </p>
+                            <button class="news-card__button read-more-btn">
+                                Читать далее...
+                            </button>
+                        </article>
+
+                        <!-- Новость 5 -->
+                        <article class="news-card">
+                            <h3 class="news-card__title">
+                                Системное программирование: от новичка до
+                                эксперта
+                            </h3>
+                            <div class="news-card__meta">
+                                <time datetime="2023-12-28"
+                                    >28 декабря 2023</time
+                                >
+                                | Автор: Бунто М.В.
+                            </div>
+                            <p class="news-card__text">
+                                Публикуем наше руководство по системному
+                                программированию. От основ работы с памятью до
+                                продвинутых техник оптимизации. Включает
+                                практические примеры на Rust и C++. Идеально для
+                                тех, кто хочет углубиться в низкоуровневое
+                                программирование.
+                            </p>
+                            <button class="news-card__button read-more-btn">
+                                Читать далее...
+                            </button>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Футер -->
+            <footer class="footer">
+                <p class="footer__text">
+                    &copy; 2024 X2App. Все права защищены.
+                </p>
+            </footer>
         </div>
-        <div class="footer">Футер</div>
+
+        <script>
+            // Переключение темы
+            const themeToggle = document.getElementById("themeToggle");
+            const currentTheme = localStorage.getItem("theme") || "light";
+
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            updateThemeButton(currentTheme);
+
+            themeToggle.addEventListener("click", () => {
+                const newTheme =
+                    document.documentElement.getAttribute("data-theme") ===
+                    "dark"
+                        ? "light"
+                        : "dark";
+                document.documentElement.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
+                updateThemeButton(newTheme);
+            });
+
+            function updateThemeButton(theme) {
+                themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+            }
+
+            // Логика для кнопок "Читать далее"
+            document.querySelectorAll(".read-more-btn").forEach((button) => {
+                button.addEventListener("click", function () {
+                    const newsCard = this.closest(".news-card");
+                    const newsText = newsCard.querySelector(".news-card__text");
+
+                    if (
+                        newsText.classList.contains("news-card__text--expanded")
+                    ) {
+                        newsText.classList.remove("news-card__text--expanded");
+                        this.textContent = "Читать далее...";
+                        newsCard.classList.remove("news-card--expanded");
+                    } else {
+                        newsText.classList.add("news-card__text--expanded");
+                        this.textContent = "Свернуть";
+                        newsCard.classList.add("news-card--expanded");
+                    }
+                });
+            });
+
+            // Добавляем интерактивность для карточек новостей
+            document.querySelectorAll(".news-card").forEach((card) => {
+                card.addEventListener("click", function (e) {
+                    // Игнорируем клики по кнопкам
+                    if (e.target.classList.contains("news-card__button"))
+                        return;
+
+                    this.classList.toggle("news-card--selected");
+                });
+            });
+        </script>
     </body>
 </html>

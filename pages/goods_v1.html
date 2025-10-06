@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Товары - Первая контрольная по фронту и беку</title>
+        <link rel="stylesheet" href="../styles/styles.css" />
+    </head>
+    <body>
+        <div class="page">
+            <!-- Семантический хедер -->
+            <header class="header">
+                <h1 class="header__title">Наши эксклюзивные товары</h1>
+            </header>
+
+            <!-- Навигация -->
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link" href="../index.html">Главная</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="news.html">Новости</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--active" href="goods.html"
+                            >Товары</a
+                        >
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="contacts.html">Контакты</a>
+                    </li>
+                    <!-- Переключатель темы -->
+                    <li class="nav__item">
+                        <button
+                            class="nav__theme-toggle"
+                            id="themeToggle"
+                            aria-label="Переключить тему"
+                        >
+                            🌙
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Основной контент -->
+            <main class="main">
+                <section class="products">
+                    <h2 class="products__title">
+                        Каталог уникальных предложений
+                    </h2>
+                    <p class="products__description">
+                        Мы предлагаем эксклюзивные товары для настоящих
+                        ценителей качества и стиля
+                    </p>
+
+                    <div class="products__grid">
+                        <!-- Товар 1 -->
+                        <article class="product-card" data-product-id="1">
+                            <img
+                                src="../images/clava.jpg"
+                                alt="Клавдия Васильева"
+                                class="product-card__image"
+                            />
+                            <h3 class="product-card__name">
+                                Клавдия Васильева
+                            </h3>
+                            <p class="product-card__description">
+                                Эксклюзивная модель премиум-класса. Идеально
+                                подходит для представительских целей. Гарантия
+                                качества и полное сопровождение.
+                            </p>
+                            <div class="product-card__price">999 999 ₽</div>
+                            <button class="product-card__button">
+                                В корзину
+                            </button>
+                        </article>
+
+                        <!-- Товар 2 -->
+                        <article class="product-card" data-product-id="2">
+                            <img
+                                src="../images/diplom.jpg"
+                                alt="Диплом о высшем образовании"
+                                class="product-card__image"
+                            />
+                            <h3 class="product-card__name">
+                                Диплом о высшем образовании
+                            </h3>
+                            <p class="product-card__description">
+                                Подставка под кружку с функцией повышения
+                                социального статуса. Гарантия качества - 4 года
+                                обучения. В комплекте: знания и навыки.
+                            </p>
+                            <div class="product-card__price">1 300 000 ₽</div>
+                            <button class="product-card__button">
+                                В корзину
+                            </button>
+                        </article>
+
+                        <!-- Товар 3 -->
+                        <article
+                            class="product-card product-card--discount"
+                            data-product-id="3"
+                        >
+                            <img
+                                src="../images/disc.webp"
+                                alt="Винчестер большой"
+                                class="product-card__image"
+                            />
+                            <h3 class="product-card__name">
+                                Винчестер большой
+                            </h3>
+                            <p class="product-card__description">
+                                Легендарный HDD 1970-х годов. Размер: с
+                                современный холодильник. Объем: целых 5 МБ!
+                                Идеален для коллекционеров и музеев
+                                вычислительной техники.
+                            </p>
+                            <div class="product-card__price">100 ₽</div>
+                            <div class="product-card__specs">
+                                <span>5 МБ памяти</span>
+                                <span>Габариты: 150×80×60 см</span>
+                                <span>Вес: 90 кг</span>
+                            </div>
+                            <button class="product-card__button">
+                                В корзину
+                            </button>
+                        </article>
+
+                        <!-- Товар 4 -->
+                        <article class="product-card" data-product-id="4">
+                            <img
+                                src="../images/rust_crab.png"
+                                alt="Талисман Rust Crab"
+                                class="product-card__image"
+                            />
+                            <h3 class="product-card__name">
+                                Талисман Rust Crab
+                            </h3>
+                            <p class="product-card__description">
+                                Официальный талисман языка Rust. Приносит удачу
+                                в программировании и защищает от segfault.
+                                Гарантированно улучшает качество кода.
+                            </p>
+                            <div class="product-card__price">2 500 ₽</div>
+                            <button class="product-card__button">
+                                В корзину
+                            </button>
+                        </article>
+
+                        <!-- Товар 5 -->
+                        <article
+                            class="product-card product-card--discount"
+                            data-product-id="5"
+                        >
+                            <img
+                                src="../images/arch_logo.png"
+                                alt="Услуга установки Arch Linux"
+                                class="product-card__image"
+                            />
+                            <h3 class="product-card__name">
+                                Услуга установки Arch Linux
+                            </h3>
+                            <p class="product-card__description">
+                                Профессиональная установка Arch Linux с
+                                настройкой. Гарантия: "It works on my machine".
+                                Включает консультацию по первому pacman -Syu.
+                            </p>
+                            <div class="product-card__price">5 000 ₽</div>
+                            <button class="product-card__button">
+                                В корзину
+                            </button>
+                        </article>
+
+                        <!-- Товар 6 -->
+                        <article class="product-card" data-product-id="6">
+                            <img
+                                src="../images/stress_test.png"
+                                alt="Стресс-тестирование системы"
+                                class="product-card__image"
+                            />
+                            <h3 class="product-card__name">
+                                Стресс-тестирование системы
+                            </h3>
+                            <p class="product-card__description">
+                                Профессиональное тестирование вашей системы на
+                                устойчивость. Результат гарантирован. Идеально
+                                для проверки серверов и рабочих станций.
+                            </p>
+                            <div class="product-card__price">10 000 ₽</div>
+                            <button class="product-card__button">
+                                В корзину
+                            </button>
+                        </article>
+
+                        <!-- Товар 7 -->
+                        <article class="product-card" data-product-id="7">
+                            <img
+                                src="../images/code_review.jpg"
+                                alt="Code Review от эксперта"
+                                class="product-card__image"
+                            />
+                            <h3 class="product-card__name">
+                                Code Review от эксперта
+                            </h3>
+                            <p class="product-card__description">
+                                Детальный размотр вашего кода с рекомендациями
+                                по улучшению. Включает анализ архитектуры,
+                                безопасности и производительности.
+                            </p>
+                            <div class="product-card__price">8 000 ₽</div>
+                            <button class="product-card__button">
+                                В корзину
+                            </button>
+                        </article>
+
+                        <!-- Товар 8 -->
+                        <article
+                            class="product-card product-card--discount"
+                            data-product-id="8"
+                        >
+                            <img
+                                src="../images/mentoring.jpg"
+                                alt="Менторство по программированию"
+                                class="product-card__image"
+                            />
+                            <h3 class="product-card__name">
+                                Менторство по программированию
+                            </h3>
+                            <p class="product-card__description">
+                                Индивидуальные занятия по Rust, системному
+                                программированию и алгоритмам. Персональный
+                                подход и гарантированный результат.
+                            </p>
+                            <div class="product-card__price">15 000 ₽</div>
+                            <button class="product-card__button">
+                                В корзину
+                            </button>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Футер -->
+            <footer class="footer">
+                <p class="footer__text">
+                    &copy; 2024 X2App. Все права защищены.
+                </p>
+            </footer>
+        </div>
+
+        <script>
+            // Переключение темы
+            const themeToggle = document.getElementById("themeToggle");
+            const currentTheme = localStorage.getItem("theme") || "light";
+
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            updateThemeButton(currentTheme);
+
+            themeToggle.addEventListener("click", () => {
+                const newTheme =
+                    document.documentElement.getAttribute("data-theme") ===
+                    "dark"
+                        ? "light"
+                        : "dark";
+                document.documentElement.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
+                updateThemeButton(newTheme);
+            });
+
+            function updateThemeButton(theme) {
+                themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+            }
+
+            // Логика для кнопок "В корзину"
+            document
+                .querySelectorAll(".product-card__button")
+                .forEach((button) => {
+                    button.addEventListener("click", function (e) {
+                        e.stopPropagation(); // Предотвращаем всплытие события
+
+                        const productCard = this.closest(".product-card");
+                        const productId = productCard.dataset.productId;
+                        const productName = productCard.querySelector(
+                            ".product-card__name",
+                        ).textContent;
+                        const productPrice = productCard.querySelector(
+                            ".product-card__price",
+                        ).textContent;
+
+                        // В реальном приложении здесь была бы логика корзины
+                        console.log(
+                            `Товар ID: ${productId}, Название: ${productName}, Цена: ${productPrice}`,
+                        );
+
+                        // Визуальная обратная связь
+                        this.textContent = "Добавлено!";
+                        this.classList.add("product-card__button--added");
+                        this.disabled = true;
+
+                        // Добавляем класс selected к карточке
+                        productCard.classList.add("product-card--selected");
+
+                        setTimeout(() => {
+                            this.textContent = "В корзину";
+                            this.classList.remove(
+                                "product-card__button--added",
+                            );
+                            this.disabled = false;
+                            productCard.classList.remove(
+                                "product-card--selected",
+                            );
+                        }, 2000);
+                    });
+                });
+
+            // Интерактивность карточек товаров
+            document.querySelectorAll(".product-card").forEach((card) => {
+                card.addEventListener("click", function (e) {
+                    // Игнорируем клики по кнопкам
+                    if (e.target.classList.contains("product-card__button"))
+                        return;
+
+                    this.classList.toggle("product-card--selected");
+                });
+            });
+
+            // Фильтрация товаров (демонстрация состояний)
+            let selectedCategory = "all";
+
+            // Демо-функция для фильтрации (можно расширить)
+            function filterProducts(category) {
+                document.querySelectorAll(".product-card").forEach((card) => {
+                    if (
+                        category === "all" ||
+                        card.classList.contains(`product-card--${category}`)
+                    ) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+                selectedCategory = category;
+            }
+
+            // Демонстрация: добавляем случайные категории для показа фильтрации
+            document.addEventListener("DOMContentLoaded", () => {
+                const categories = ["discount", "new", "popular"];
+                document
+                    .querySelectorAll(".product-card")
+                    .forEach((card, index) => {
+                        if (index % 3 === 0) {
+                            card.classList.add("product-card--new");
+                        }
+                        if (index % 4 === 0) {
+                            card.classList.add("product-card--popular");
+                        }
+                    });
+            });
+        </script>
+    </body>
+</html>

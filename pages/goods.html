@@ -1,60 +1,586 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-bs-theme="light">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Первая контрольная по фронту и беку</title>
-        <link rel="stylesheet" href="../styles/styles.css" />
+        <title>Товары - Первая контрольная по фронту и беку</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+        />
+        <style>
+            .product-card {
+                transition:
+                    transform 0.3s,
+                    box-shadow 0.3s;
+                height: 100%;
+            }
+            .product-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+            }
+            .product-card--discount {
+                border: 2px solid #ffc107;
+            }
+            .product-card--selected {
+                border-color: #0d6efd !important;
+                background-color: #f8f9fa !important;
+            }
+            [data-bs-theme="dark"] .product-card--selected {
+                background-color: #1a1d20 !important;
+            }
+            .product-image {
+                height: 200px;
+                object-fit: cover;
+            }
+            .badge-discount {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 1;
+            }
+        </style>
     </head>
-    <body>
-        <div class="page-container">
-            <div class="nav">
-                <ul class="nav-list">
-                    <li class="nav-elem">
-                        <a class="nav-link" href="../index.html">Главная</a>
-                    </li>
-                    <li class="nav-elem">
-                        <a class="nav-link" href="news.html">Новости</a>
-                    </li>
-                    <li class="nav-elem">
-                        <a class="nav-link" href="contacts.html">Контакты</a>
-                    </li>
-                </ul>
-            </div>
+    <body class="bg-light">
+        <div class="container-fluid p-0">
+            <!-- Заголовок -->
+            <header class="bg-primary text-white py-3">
+                <div class="container">
+                    <h1 class="h3 mb-0">Наши эксклюзивные товары</h1>
+                </div>
+            </header>
 
-            <div id="placeholders">
-                <div class="placeholder">
-                    <h3>Клавдия Васильева</h3>
-                    <img
-                        src="../images/clava.jpg"
-                        alt="Клавдия Васильва"
-                        width="200"
-                        height="250"
-                    />
-                    <p>Цена 99999 рублей</p>
+            <!-- Навигация -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../index.html">
+                                    <i class="bi bi-house me-1"></i>Главная
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">
+                                    <i class="bi bi-newspaper me-1"></i>Новости
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="goods.html">
+                                    <i class="bi bi-cart me-1"></i>Товары
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacts.html">
+                                    <i class="bi bi-telephone me-1"></i>Контакты
+                                </a>
+                            </li>
+                        </ul>
+                        <button class="btn btn-outline-light" id="themeToggle">
+                            <i class="bi bi-moon"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="placeholder">
-                    <h3>Подствавка под кружку, удобная</h3>
-                    <img
-                        src="../images/diplom.jpg"
-                        alt="Подставка под кружку"
-                        width="200"
-                        height="250"
-                    />
-                    <p>Цена 4 года жизни и примерно 1,3М рублей</p>
+            </nav>
+
+            <!-- Основное содержимое -->
+            <main class="container my-4">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h2 class="h3 text-primary mb-2">
+                            Каталог уникальных предложений
+                        </h2>
+                        <p class="text-muted">
+                            Мы предлагаем эксклюзивные товары для настоящих
+                            ценителей качества и стиля
+                        </p>
+                    </div>
                 </div>
-                <div class="placeholder">
-                    <h3>Винчестер, большой</h3>
-                    <img
-                        src="../images/disc.webp"
-                        alt="Винчестер, большой"
-                        width="200"
-                        height="250"
-                    />
-                    <p>Цена 100 рублей</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="card product-card h-100"
+                            data-product-id="1"
+                        >
+                            <div class="position-relative">
+                                <img
+                                    src="../images/clava.jpg"
+                                    alt="Клавдия Васильева"
+                                    class="card-img-top product-image"
+                                />
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Клавдия Васильева</h5>
+                                <p class="card-text flex-grow-1">
+                                    Эксклюзивная модель премиум-класса. Идеально
+                                    подходит для представительских целей.
+                                    Гарантия качества и полное сопровождение.
+                                </p>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mt-auto"
+                                >
+                                    <span class="h5 text-primary mb-0"
+                                        >999 999 ₽</span
+                                    >
+                                    <button
+                                        class="btn btn-primary product-card__button"
+                                    >
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="card product-card h-100"
+                            data-product-id="2"
+                        >
+                            <div class="position-relative">
+                                <img
+                                    src="../images/diplom.jpg"
+                                    alt="Диплом о высшем образовании"
+                                    class="card-img-top product-image"
+                                />
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    Диплом о высшем образовании
+                                </h5>
+                                <p class="card-text flex-grow-1">
+                                    Подставка под кружку с функцией повышения
+                                    социального статуса. Гарантия качества - 4
+                                    года обучения. В комплекте: знания и навыки.
+                                </p>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mt-auto"
+                                >
+                                    <span class="h5 text-primary mb-0"
+                                        >1 300 000 ₽</span
+                                    >
+                                    <button
+                                        class="btn btn-primary product-card__button"
+                                    >
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="card product-card product-card--discount h-100"
+                            data-product-id="3"
+                        >
+                            <div class="position-relative">
+                                <img
+                                    src="../images/disc.webp"
+                                    alt="Винчестер большой"
+                                    class="card-img-top product-image"
+                                />
+                                <span
+                                    class="badge bg-warning text-dark badge-discount"
+                                    >РАРИТЕТ</span
+                                >
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Винчестер большой</h5>
+                                <p class="card-text flex-grow-1">
+                                    Легендарный HDD 1970-х годов. Размер: с
+                                    современный холодильник. Объем: целых 5 МБ!
+                                    Идеален для коллекционеров.
+                                </p>
+                                <div class="mb-2">
+                                    <small class="text-muted d-block"
+                                        ><i class="bi bi-memory"></i> 5 МБ
+                                        памяти</small
+                                    >
+                                    <small class="text-muted d-block"
+                                        ><i class="bi bi-rulers"></i> 150×80×60
+                                        см</small
+                                    >
+                                    <small class="text-muted d-block"
+                                        ><i class="bi bi-speedometer2"></i> Вес:
+                                        90 кг</small
+                                    >
+                                </div>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mt-auto"
+                                >
+                                    <span class="h5 text-primary mb-0"
+                                        >100 ₽</span
+                                    >
+                                    <button
+                                        class="btn btn-primary product-card__button"
+                                    >
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="card product-card h-100"
+                            data-product-id="4"
+                        >
+                            <div class="position-relative">
+                                <img
+                                    src="../images/rust_crab.png"
+                                    alt="Талисман Rust Crab"
+                                    class="card-img-top product-image"
+                                />
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Талисман Rust Crab</h5>
+                                <p class="card-text flex-grow-1">
+                                    Официальный талисман языка Rust. Приносит
+                                    удачу в программировании и защищает от
+                                    segfault. Гарантированно улучшает качество
+                                    кода.
+                                </p>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mt-auto"
+                                >
+                                    <span class="h5 text-primary mb-0"
+                                        >2 500 ₽</span
+                                    >
+                                    <button
+                                        class="btn btn-primary product-card__button"
+                                    >
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="card product-card product-card--discount h-100"
+                            data-product-id="5"
+                        >
+                            <div class="position-relative">
+                                <img
+                                    src="../images/arch_logo.png"
+                                    alt="Услуга установки Arch Linux"
+                                    class="card-img-top product-image"
+                                />
+                                <span
+                                    class="badge bg-warning text-dark badge-discount"
+                                    >ПОПУЛЯРНО</span
+                                >
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    Услуга установки Arch Linux
+                                </h5>
+                                <p class="card-text flex-grow-1">
+                                    Профессиональная установка Arch Linux с
+                                    настройкой. Гарантия: "It works on my
+                                    machine". Включает консультацию по первому
+                                    pacman -Syu.
+                                </p>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mt-auto"
+                                >
+                                    <span class="h5 text-primary mb-0"
+                                        >5 000 ₽</span
+                                    >
+                                    <button
+                                        class="btn btn-primary product-card__button"
+                                    >
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="card product-card h-100"
+                            data-product-id="6"
+                        >
+                            <div class="position-relative">
+                                <img
+                                    src="../images/stress_test.png"
+                                    alt="Стресс-тестирование системы"
+                                    class="card-img-top product-image"
+                                />
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    Стресс-тестирование системы
+                                </h5>
+                                <p class="card-text flex-grow-1">
+                                    Профессиональное тестирование вашей системы
+                                    на устойчивость. Результат гарантирован.
+                                    Идеально для проверки серверов и рабочих
+                                    станций.
+                                </p>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mt-auto"
+                                >
+                                    <span class="h5 text-primary mb-0"
+                                        >10 000 ₽</span
+                                    >
+                                    <button
+                                        class="btn btn-primary product-card__button"
+                                    >
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="card product-card h-100"
+                            data-product-id="7"
+                        >
+                            <div class="position-relative">
+                                <img
+                                    src="../images/code_review.jpg"
+                                    alt="Code Review от эксперта"
+                                    class="card-img-top product-image"
+                                />
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    Code Review от эксперта
+                                </h5>
+                                <p class="card-text flex-grow-1">
+                                    Детальный размотр вашего кода с
+                                    рекомендациями по улучшению. Включает анализ
+                                    архитектуры, безопасности и
+                                    производительности.
+                                </p>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mt-auto"
+                                >
+                                    <span class="h5 text-primary mb-0"
+                                        >8 000 ₽</span
+                                    >
+                                    <button
+                                        class="btn btn-primary product-card__button"
+                                    >
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="card product-card product-card--discount h-100"
+                            data-product-id="8"
+                        >
+                            <div class="position-relative">
+                                <img
+                                    src="../images/mentoring.jpg"
+                                    alt="Менторство по программированию"
+                                    class="card-img-top product-image"
+                                />
+                                <span
+                                    class="badge bg-warning text-dark badge-discount"
+                                    >ХИТ</span
+                                >
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    Менторство по программированию
+                                </h5>
+                                <p class="card-text flex-grow-1">
+                                    Индивидуальные занятия по Rust, системному
+                                    программированию и алгоритмам. Персональный
+                                    подход и гарантированный результат.
+                                </p>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mt-auto"
+                                >
+                                    <span class="h5 text-primary mb-0"
+                                        >15 000 ₽</span
+                                    >
+                                    <button
+                                        class="btn btn-primary product-card__button"
+                                    >
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </main>
+
+            <footer class="bg-dark text-white py-4 mt-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <p class="mb-0">
+                                &copy; 2024 X2App. Все права защищены.
+                            </p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <a
+                                href="contacts.html"
+                                class="text-white text-decoration-none me-3"
+                                >Контакты</a
+                            >
+                            <a href="#" class="text-white text-decoration-none"
+                                >Политика конфиденциальности</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-        <div class="footer">Футер</div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Переключение темы
+            const themeToggle = document.getElementById("themeToggle");
+            const currentTheme = localStorage.getItem("theme") || "light";
+
+            document.documentElement.setAttribute(
+                "data-bs-theme",
+                currentTheme,
+            );
+            updateThemeButton(currentTheme);
+
+            themeToggle.addEventListener("click", () => {
+                const newTheme =
+                    document.documentElement.getAttribute("data-bs-theme") ===
+                    "dark"
+                        ? "light"
+                        : "dark";
+                document.documentElement.setAttribute(
+                    "data-bs-theme",
+                    newTheme,
+                );
+                localStorage.setItem("theme", newTheme);
+                updateThemeButton(newTheme);
+            });
+
+            function updateThemeButton(theme) {
+                const icon = themeToggle.querySelector("i");
+                if (theme === "dark") {
+                    icon.className = "bi bi-sun";
+                    themeToggle.classList.remove("btn-outline-light");
+                    themeToggle.classList.add("btn-outline-warning");
+                } else {
+                    icon.className = "bi bi-moon";
+                    themeToggle.classList.remove("btn-outline-warning");
+                    themeToggle.classList.add("btn-outline-light");
+                }
+            }
+
+            // Логика для кнопок "В корзину"
+            document
+                .querySelectorAll(".product-card__button")
+                .forEach((button) => {
+                    button.addEventListener("click", function (e) {
+                        e.stopPropagation();
+
+                        const productCard = this.closest(".product-card");
+                        const productId = productCard.dataset.productId;
+                        const productName =
+                            productCard.querySelector(
+                                ".card-title",
+                            ).textContent;
+                        const productPrice =
+                            productCard.querySelector(
+                                ".text-primary",
+                            ).textContent;
+
+                        console.log(
+                            `Товар ID: ${productId}, Название: ${productName}, Цена: ${productPrice}`,
+                        );
+
+                        // Визуальная обратная связь
+                        const originalHTML = this.innerHTML;
+                        this.innerHTML = '<i class="bi bi-check-lg"></i>';
+                        this.classList.remove("btn-primary");
+                        this.classList.add("btn-success");
+                        this.disabled = true;
+
+                        productCard.classList.add("product-card--selected");
+
+                        setTimeout(() => {
+                            this.innerHTML = originalHTML;
+                            this.classList.remove("btn-success");
+                            this.classList.add("btn-primary");
+                            this.disabled = false;
+                            productCard.classList.remove(
+                                "product-card--selected",
+                            );
+                        }, 2000);
+                    });
+                });
+
+            // Интерактивность карточек товаров
+            document.querySelectorAll(".product-card").forEach((card) => {
+                card.addEventListener("click", function (e) {
+                    if (
+                        e.target.classList.contains("product-card__button") ||
+                        e.target.closest(".product-card__button")
+                    )
+                        return;
+
+                    this.classList.toggle("product-card--selected");
+                });
+            });
+
+            // Демо-фильтрация
+            let selectedCategory = "all";
+
+            function filterProducts(category) {
+                document.querySelectorAll(".product-card").forEach((card) => {
+                    if (
+                        category === "all" ||
+                        card.classList.contains(`product-card--${category}`)
+                    ) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+                selectedCategory = category;
+            }
+
+            // Демонстрация: добавляем случайные категории
+            document.addEventListener("DOMContentLoaded", () => {
+                const categories = ["discount", "new", "popular"];
+                document
+                    .querySelectorAll(".product-card")
+                    .forEach((card, index) => {
+                        if (index % 3 === 0) {
+                            card.classList.add("product-card--new");
+                        }
+                        if (index % 4 === 0) {
+                            card.classList.add("product-card--popular");
+                        }
+                    });
+            });
+        </script>
     </body>
 </html>

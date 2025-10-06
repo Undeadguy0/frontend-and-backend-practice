@@ -3,34 +3,400 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Первая контрольная по фронту и беку</title>
+        <title>Контакты - Первая контрольная по фронту и беку</title>
         <link rel="stylesheet" href="../styles/styles.css" />
     </head>
     <body>
-        <div class="page-container">
-            <div class="nav">
-                <ul class="nav-list">
-                    <li class="nav-elem">
-                        <a class="nav-link" href="../index.html">Главная</a>
+        <div class="page">
+            <!-- Семантический хедер -->
+            <header class="header">
+                <h1 class="header__title">Контакты</h1>
+            </header>
+
+            <!-- Навигация -->
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link" href="../index.html">Главная</a>
                     </li>
-                    <li class="nav-elem">
-                        <a class="nav-link" href="news.html">Новости</a>
+                    <li class="nav__item">
+                        <a class="nav__link" href="news.html">Новости</a>
                     </li>
-                    <li class="nav-elem">
-                        <a class="nav-link" href="goods.html">Товары</a>
+                    <li class="nav__item">
+                        <a class="nav__link" href="goods.html">Товары</a>
+                    </li>
+                    <li class="nav__item">
+                        <a
+                            class="nav__link nav__link--active"
+                            href="contacts.html"
+                            >Контакты</a
+                        >
+                    </li>
+                    <!-- Переключатель темы -->
+                    <li class="nav__item">
+                        <button
+                            class="nav__theme-toggle"
+                            id="themeToggle"
+                            aria-label="Переключить тему"
+                        >
+                            🌙
+                        </button>
                     </li>
                 </ul>
-            </div>
+            </nav>
 
-            <ul class="contacts-list">
-                <li class="contacts-elem">Почта: MikhailBunto@yandex.ru</li>
-                <li class="contacts-elem">
-                    Адрес: Г. Москва, ул. Пушкина д. 666
-                </li>
-            </ul>
+            <!-- Основной контент -->
+            <main class="main">
+                <section class="contacts">
+                    <h2 class="contacts__title">Наши контакты</h2>
 
-            <button class="CALL_ME">ПОЗВОНИ МНЕ!</button>
+                    <!-- Контактная информация -->
+                    <div class="contacts__grid">
+                        <article class="contact-item">
+                            <h3 class="contact-item__title">
+                                Электронная почта
+                            </h3>
+                            <p class="contact-item__value">
+                                MikhailBunto@yandex.ru
+                            </p>
+                        </article>
+
+                        <article class="contact-item">
+                            <h3 class="contact-item__title">Адрес</h3>
+                            <p class="contact-item__value">
+                                Г. Москва, ул. Пушкина д. 666
+                            </p>
+                        </article>
+
+                        <article class="contact-item">
+                            <h3 class="contact-item__title">Телефон</h3>
+                            <p class="contact-item__value">
+                                +7 (495) 123-45-67
+                            </p>
+                        </article>
+
+                        <article class="contact-item">
+                            <h3 class="contact-item__title">Время работы</h3>
+                            <p class="contact-item__value">Пн-Пт: 9:00-18:00</p>
+                        </article>
+
+                        <article class="contact-item">
+                            <h3 class="contact-item__title">Telegram</h3>
+                            <p class="contact-item__value">@mikhail_bunto</p>
+                        </article>
+
+                        <article class="contact-item">
+                            <h3 class="contact-item__title">GitHub</h3>
+                            <p class="contact-item__value">
+                                github.com/mikhailbunto
+                            </p>
+                        </article>
+                    </div>
+
+                    <!-- Кнопка для открытия модального окна -->
+                    <button class="contacts__button" id="openContactModal">
+                        Связаться с нами
+                    </button>
+                </section>
+            </main>
+
+            <!-- Футер -->
+            <footer class="footer">
+                <p class="footer__text">
+                    &copy; 2024 X2App. Все права защищены.
+                </p>
+            </footer>
+
+            <!-- Модальное окно для формы обратной связи -->
+            <dialog class="modal" id="contactModal">
+                <div class="modal__header">
+                    <h2 class="modal__title">Форма обратной связи</h2>
+                </div>
+
+                <div class="modal__content">
+                    <form
+                        class="form"
+                        id="feedbackForm"
+                        method="dialog"
+                        novalidate
+                    >
+                        <div class="form__group">
+                            <label for="name" class="form__label">
+                                Имя <span class="required">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                class="form__input"
+                                required
+                                placeholder="Введите ваше имя"
+                                aria-describedby="nameHelp"
+                            />
+                            <small id="nameHelp" class="form__help"
+                                >Минимум 2 символа</small
+                            >
+                        </div>
+
+                        <div class="form__group">
+                            <label for="phone" class="form__label">
+                                Телефон <span class="required">*</span>
+                            </label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                class="form__input"
+                                required
+                                placeholder="+7 (XXX) XXX-XX-XX"
+                                pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                                aria-describedby="phoneHelp"
+                            />
+                            <small id="phoneHelp" class="form__help"
+                                >Формат: +7 (900) 000-00-00</small
+                            >
+                        </div>
+
+                        <div class="form__group">
+                            <label for="email" class="form__label">
+                                Электронная почта
+                                <span class="required">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form__input"
+                                required
+                                placeholder="example@mail.ru"
+                                aria-describedby="emailHelp"
+                            />
+                            <small id="emailHelp" class="form__help"
+                                >Мы не рассылаем спам</small
+                            >
+                        </div>
+
+                        <div class="form__group">
+                            <label for="category" class="form__label">
+                                Категория обращения
+                                <span class="required">*</span>
+                            </label>
+                            <select
+                                id="category"
+                                name="category"
+                                class="form__select"
+                                required
+                            >
+                                <option value="">Выберите категорию</option>
+                                <option value="technical">
+                                    Техническая поддержка
+                                </option>
+                                <option value="commercial">
+                                    Коммерческое предложение
+                                </option>
+                                <option value="cooperation">
+                                    Сотрудничество
+                                </option>
+                                <option value="consultation">
+                                    Консультация
+                                </option>
+                                <option value="complaint">Жалоба</option>
+                                <option value="suggestion">Предложение</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="priority" class="form__label">
+                                Приоритет обращения
+                            </label>
+                            <select
+                                id="priority"
+                                name="priority"
+                                class="form__select"
+                            >
+                                <option value="low">Низкий</option>
+                                <option value="medium" selected>Средний</option>
+                                <option value="high">Высокий</option>
+                                <option value="urgent">Срочный</option>
+                            </select>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="message" class="form__label">
+                                Текст обращения <span class="required">*</span>
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                class="form__textarea"
+                                required
+                                placeholder="Опишите вашу проблему или вопрос..."
+                                aria-describedby="messageHelp"
+                                minlength="10"
+                            ></textarea>
+                            <small id="messageHelp" class="form__help"
+                                >Минимум 10 символов</small
+                            >
+                        </div>
+
+                        <div class="form__group">
+                            <label class="form__checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="agreement"
+                                    required
+                                />
+                                <span class="form__checkbox-text">
+                                    Я согласен на обработку персональных данных
+                                    <span class="required">*</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="form__actions">
+                            <button
+                                type="submit"
+                                class="button button--secondary"
+                            >
+                                Отмена
+                            </button>
+                            <button
+                                type="button"
+                                class="button button--primary"
+                                id="submitFormBtn"
+                            >
+                                Отправить
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </dialog>
         </div>
-        <div class="footer">Футер</div>
+
+        <script>
+            // Переключение темы
+            const themeToggle = document.getElementById("themeToggle");
+            const currentTheme = localStorage.getItem("theme") || "light";
+
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            updateThemeButton(currentTheme);
+
+            themeToggle.addEventListener("click", () => {
+                const newTheme =
+                    document.documentElement.getAttribute("data-theme") ===
+                    "dark"
+                        ? "light"
+                        : "dark";
+                document.documentElement.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
+                updateThemeButton(newTheme);
+            });
+
+            function updateThemeButton(theme) {
+                themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+            }
+
+            // Работа с модальным окном
+            const dialog = document.getElementById("contactModal");
+            const openButton = document.getElementById("openContactModal");
+            const submitButton = document.getElementById("submitFormBtn");
+            const form = document.getElementById("feedbackForm");
+
+            openButton.addEventListener("click", () => {
+                dialog.showModal();
+            });
+
+            // Функция для отправки формы
+            function submitForm() {
+                const form = document.getElementById("feedbackForm");
+                const formData = new FormData(form);
+
+                // Простая валидация
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                // Собираем данные формы
+                const data = {
+                    name: formData.get("name"),
+                    phone: formData.get("phone"),
+                    email: formData.get("email"),
+                    category: formData.get("category"),
+                    priority: formData.get("priority"),
+                    message: formData.get("message"),
+                    agreement: formData.get("agreement"),
+                };
+
+                // В реальном приложении здесь был бы AJAX-запрос
+                console.log("Данные формы:", data);
+
+                // Показываем уведомление об успешной отправке
+                alert(
+                    "Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.",
+                );
+
+                // Закрываем модальное окно
+                dialog.close();
+
+                // Очищаем форму
+                form.reset();
+            }
+
+            submitButton.addEventListener("click", submitForm);
+
+            // Закрытие модального окна по клику на фон
+            dialog.addEventListener("click", function (event) {
+                if (event.target === this) {
+                    this.close();
+                }
+            });
+
+            // Обработка отправки формы через Enter (предотвращаем стандартное поведение)
+            form.addEventListener("keypress", function (event) {
+                if (event.key === "Enter" && event.target.type !== "textarea") {
+                    event.preventDefault();
+                }
+            });
+
+            // Валидация в реальном времени
+            form.addEventListener("input", function (event) {
+                const target = event.target;
+
+                if (target.validity.valid) {
+                    target.classList.remove("form__input--invalid");
+                    target.classList.add("form__input--valid");
+                } else {
+                    target.classList.remove("form__input--valid");
+                    target.classList.add("form__input--invalid");
+                }
+            });
+
+            // Интерактивность для контактных элементов
+            document.querySelectorAll(".contact-item").forEach((item) => {
+                item.addEventListener("click", function () {
+                    this.classList.toggle("contact-item--selected");
+
+                    // Копируем текст контакта в буфер обмена
+                    const contactValue = this.querySelector(
+                        ".contact-item__value",
+                    ).textContent;
+                    navigator.clipboard.writeText(contactValue).then(() => {
+                        const originalText = this.querySelector(
+                            ".contact-item__value",
+                        ).textContent;
+                        this.querySelector(".contact-item__value").textContent =
+                            "Скопировано!";
+
+                        setTimeout(() => {
+                            this.querySelector(
+                                ".contact-item__value",
+                            ).textContent = originalText;
+                        }, 2000);
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
